@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="source\projectsEG2014.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StdAfx.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PCIBuildingBlockEG2014.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AttachmentBuildingBlockUpward.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\StdAfx.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\projectsEG2014.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\projectsEG2014.tags.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PCIBuildingBlockEG2014.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttachmentBuildingBlockUpward.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\developer\projectsEG2014.module.dev.html">
+      <Filter>docs\developer</Filter>
+    </None>
+    <None Include="doc\user\projectsEG2014.module.user.html">
+      <Filter>docs\user</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="docs">
+      <UniqueIdentifier>{747c45e8-7cd5-4559-978a-a35552437bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="qt">
+      <UniqueIdentifier>{debaa5a5-808d-4ff1-ba6a-6f0b261a36eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{09c49caf-f4d2-4d13-a309-f8f14e886d3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="docs\developer">
+      <UniqueIdentifier>{0ba48734-0dad-46b6-b729-8895dd83a2ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="docs\user">
+      <UniqueIdentifier>{ed653aad-c9aa-472e-a281-0802b8850031}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="qt\projectsEG2014.qrc">
+      <Filter>qt</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

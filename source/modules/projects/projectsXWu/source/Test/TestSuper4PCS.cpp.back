@@ -1,0 +1,159 @@
+#include "StdAfx.h"
+//---------------------------------------------------------------------------
+#include "Test/PCITestCentr.h"
+//---------------------------------------------------------------------------
+#include "Timer.h"
+//---------------------------------------------------------------------------
+
+namespace {
+    int DR_FRAME = 0;
+}
+
+#include "shared4pcs.h"
+using namespace match_4pcs;
+#include "io.h"
+#include "Eigen/Dense"
+
+#include <fstream>
+#include <iostream>
+#include <string>
+
+#define sqr(x) ((x) * (x))
+
+using namespace std;
+
+// First input.
+std::string input1 = "c:\\temp\\hippo1.obj";
+
+// Second input.
+std::string input2 = "c:\\temp\\hippo2.obj";
+
+// Output. The transformed second input.
+std::string output = "c:\\temp\\output.obj";
+
+// Delta (see the paper).
+double delta = 0.01;
+
+// Estimated overlap (see the paper).
+double overlap = 0.7;
+
+// Threshold of the computed overlap for termination. 1.0 means don't terminate
+// before the end.
+double thr = 1.0;
+
+// Maximum norm of RGB values between corresponded points. 1e9 means don't use.
+double max_color = 150;
+
+// Number of sampled points in both files. The 4PCS allows a very aggressive
+// sampling.
+int n_points = 400;
+
+// Maximum angle (degrees) between corresponded normals.
+double norm_diff = 90.0;
+
+// Maximum allowed computation time.
+int max_time_seconds = 100;
+
+bool use_super4pcs = true;
+
+void CleanInvalidNormals(vector<Point3D> &v,
+    vector<Eigen::Vector3f> &normals) {
+    if (v.size() == normals.size()) {
+        vector<Point3D>::iterator itV = v.begin();
+        vector<Eigen::Vector3f>::iterator itN = normals.begin();
+
+        float norm;
+        unsigned int nb = 0;
+        for (; itV != v.end(); ) {
+            norm = (*itV).normal().norm();
+            if (norm < 0.1) {
+                itN = normals.erase(itN);
+                itV = v.erase(itV);
+                nb++;
+            }
+            else {
+                if (norm != 1.) {
+                    (*itN)[0] /= norm;
+                    (*itN)[1] /= norm;
+                    (*itN)[2] /= norm;
+                }
+                itV++;
+                itN++;
+            }
+        }
+
+        if (nb != 0) {
+            debugOutput << "Removed " << nb << " invalid points/normals" << "\n";
+        }
+    }
+}
+
+
+void PCITestCentr::TestSuper4PCS(void)
+{
+    vector<Point3D> set1, set2;
+    vector<Eigen::Vector2f> tex_coords1, tex_coords2;
+    vector<Eigen::Vector3f> normals1, normals2;
+    vector<tripple> tris1, tris2;
+    vector<std::string> mtls1, mtls2;
+
+    IOManager iomananger;
+
+    // Read the inputs.
+    if (!iomananger.ReadObject((char *)input1.c_str(), set1, tex_coords1, normals1, tris1,
+        mtls1)) {
+        perror("Can't read input set1");
+        exit(-1);
+    }
+
+    if (!iomananger.ReadObject((char *)input2.c_str(), set2, tex_coords2, normals2, tris2,
+        mtls2)) {
+        perror("Can't read input set2");
+        exit(-1);
+    }
+
+    // clean only when we have pset to avoid wrong face to point indexation
+    if (tris1.size() == 0)
+        CleanInvalidNormals(set1, normals1);
+    if (tris2.size() == 0)
+        CleanInvalidNormals(set2, normals2);
+
+    // Our matcher.
+    Match4PCSOptions options;
+
+    // Set parameters.
+    Eigen::Matrix4f mat = Eigen::Matrix4f::Identity();
+    options.overlap_estimation = overlap;
+    options.sample_size = n_points;
+    options.max_normal_difference = norm_diff;
+    options.max_color_distance = max_color;
+    options.max_time_seconds = max_time_seconds;
+    options.delta = delta;
+    // Match and return the score (estimated overlap or the LCP).  
+    float score = 0;
+
+    MatchSuper4PCS matcher(options);
+    score = matcher.ComputeTransformation(set1, &set2, &mat);
+
+    debugOutput << "Score: " << score << "\n";
+    debugOutput << score << "\n";
+    debugOutput << "(Homogeneous) Transformation from "
+        << input2 << " to " << input1 << "\n";
+    debugOutput << str(boost::format("\n\n"
+        "%25.3f %25.3f %25.3f %25.3f\n"
+        "%25.3f %25.3f %25.3f %25.3f\n"
+        "%25.3f %25.3f %25.3f %25.3f\n"
+        "%25.3f %25.3f %25.3f %25.3f\n\n")
+        % mat(0, 0) % mat(0, 1) % mat(0, 2) % mat(0, 3)
+        % mat(1, 0) % mat(1, 1) % mat(1, 2) % mat(1, 3)
+        % mat(2, 0) % mat(2, 1) % mat(2, 2) % mat(2, 3)
+        % mat(3, 0) % mat(3, 1) % mat(3, 2) % mat(3, 3)
+        );
+
+    iomananger.WriteObject((char *)output.c_str(),
+        set2,
+        tex_coords2,
+        normals2,
+        tris2,
+        mtls2);
+}

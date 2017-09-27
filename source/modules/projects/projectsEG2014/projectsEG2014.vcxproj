@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FastDebug|Win32">
+      <Configuration>FastDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FastDebug|x64">
+      <Configuration>FastDebug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FullOpt|Win32">
+      <Configuration>FullOpt</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="FullOpt|x64">
+      <Configuration>FullOpt</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FCB5FF03-736A-47C4-A599-6D85804E8389}</ProjectGuid>
+    <RootNamespace>projectsEG2014</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>projectsEG2014</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FastDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FullOpt|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FastDebug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='FullOpt|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FastDebug|Win32'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\win32.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\FastDebug.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FullOpt|Win32'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\win32.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\FullOpt.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\win32.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\Release.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\win32.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\Debug.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FastDebug|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\x64.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\FastDebug.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='FullOpt|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\x64.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\FullOpt.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\x64.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\Release.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="..\..\..\config\BaseSettings.props" />
+    <Import Project="..\..\..\config\x64.props" />
+    <Import Project="..\..\..\config\copyDocs.props" />
+    <Import Project="..\..\..\config\Debug.props" />
+    <Import Project="..\..\..\config\loadableModule.props" />
+    <Import Project="..\..\..\config\buildModuleInfo.props" />
+    <Import Project="..\..\..\config\createClassReg.props" />
+    <Import Project="projectsEG2014.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="doc\developer\projectsEG2014.module.dev.html" />
+    <None Include="doc\user\projectsEG2014.module.user.html" />
+    <CustomBuild Include="qt\projectsEG2014.qrc">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='FastDebug|Win32'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='FastDebug|Win32'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='FastDebug|Win32'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='FastDebug|x64'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='FastDebug|x64'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='FastDebug|x64'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='FullOpt|Win32'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='FullOpt|Win32'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='FullOpt|Win32'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='FullOpt|x64'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='FullOpt|x64'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='FullOpt|x64'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">rcc: compiling %(Filename).qrc</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rcc %(FullPath) -o $(MocOutputDir)%(Filename)_rcc.h</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MocOutputDir)%(Filename)_rcc.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">rcc: compiling %(Filename).qrc</Message>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\AttachmentBuildingBlockUpward.h" />
+    <ClInclude Include="source\PCIBuildingBlockEG2014.h" />
+    <ClInclude Include="source\projectsEG2014.h" />
+    <ClInclude Include="source\projectsEG2014.tags.h" />
+    <ClInclude Include="source\StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\AttachmentBuildingBlockUpward.cpp" />
+    <ClCompile Include="source\PCIBuildingBlockEG2014.cpp" />
+    <ClCompile Include="source\StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\projectsEG2014.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\basics\x4basics\x4basics.vcxproj">
+      <Project>{a85847bb-22e0-4610-b222-c926894ddd08}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\foundation\x4core\x4core.vcxproj">
+      <Project>{cafebabe-fee1-baad-dead-12badd15ea5e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\foundation\x4interface\x4interface.vcxproj">
+      <Project>{3bcf6af7-be61-4988-90f9-3baca61b385d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\foundation\x4math\x4math.vcxproj">
+      <Project>{edbf1af5-a9c1-481f-b729-a47f737f9db3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\foundation\x4miscFoundation\x4miscFoundation.vcxproj">
+      <Project>{ed7d2adb-d181-4d5d-8841-890c3d20f8e6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\foundation\x4tools\x4tools.vcxproj">
+      <Project>{d0ac756f-b8b7-4158-b5ba-3b04cea97a4f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\moduleManagement\x4modules\x4modules.vcxproj">
+      <Project>{937d5031-1f14-4455-aee2-4734704b754b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\thirdParty\opencv\opencv.vcxproj">
+      <Project>{78a95d0f-6eca-4c04-bd2e-95e6c322fe76}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3descriptors\x3descriptors.vcxproj">
+      <Project>{9c69704b-c53d-40cc-accb-e311b49c2ff1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3editor2\x3editor2.vcxproj">
+      <Project>{7d51e75f-46d7-4825-aa03-baa447fd9299}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3editor\x3editor.vcxproj">
+      <Project>{23fde3bd-a875-46b0-8c22-a4e9aa0d9528}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3foundation_private\x3foundation_private.vcxproj">
+      <Project>{72f325a4-910a-4800-9d77-404c0394d957}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3geometry\x3geometry.vcxproj">
+      <Project>{c9859051-75ee-410c-a145-dc91f7b743c5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3openGL\x3opengl.vcxproj">
+      <Project>{7951901c-890d-4b48-999c-0d5a7bca28df}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3rendering\x3rendering.vcxproj">
+      <Project>{b89b1780-744b-45ce-a75a-97a6769df6dc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\x3base\x3sceneGraph\x3sceneGraph.vcxproj">
+      <Project>{106bc50a-ac9d-48b4-a196-e87cd2a6c3ce}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

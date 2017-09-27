@@ -1,0 +1,15 @@
+PROJECT(projectsEG2014)
+IF (${SystemVersionInfo} STREQUAL "XGRT_3_0")
+    SET(PROJECT_DEPS editor foundation glTools hierarchies pointClouds rendering sceneGraph foundation_private editor2
+        )
+ELSEIF (${SystemVersionInfo} STREQUAL "GEOXL_3_5")
+    SET(PROJECT_DEPS
+        x3editor x3editor2 x3foundation_private x3geometry x3openGL x3rendering x3sceneGraph x4basics x4core x4interface x4math x4miscFoundation x4modules x4tools x3descriptors
+        )
+ENDIF()
+
+INCLUDE_DIRECTORIES(
+    )
+
+ADD_LIB_PROJ ("SHARED" "STD"
+    )

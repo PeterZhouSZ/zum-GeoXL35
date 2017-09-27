@@ -1,0 +1,14 @@
+#### MSVC build
+1. Download the following pre-build binaries from their respective official site:
+	* Nvidia Cg
+	* Nvidia Cuda (optional)
+	* Boost
+	* Qt
+
+2. Set to correct MSVC version according to configuration in the CMake UI.
+
+#### Eclipse build
+SET BOOST_ROOT=C:\local\boost_1_59_0
+SET BOOST_LIBRARYDIR=C:\local\boost_1_59_0\lib64-msvc-12.0
+
+cmake-gui

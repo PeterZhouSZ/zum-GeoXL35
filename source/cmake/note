@@ -1,0 +1,4 @@
+// regular expression for replacing std library name without "std"
+([^:\w])set
+$1std::set
+
